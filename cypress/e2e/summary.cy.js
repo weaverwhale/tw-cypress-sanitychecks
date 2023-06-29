@@ -12,9 +12,7 @@ before(() => {
 
 describe("summary page", () => {
   it("should have menu items", () => {
-    cy.visit(
-      "https://app.triplewhale.com/summary?shop_domain=madisonbraids.myshopify.com"
-    );
+    cy.visit("/summary?shop_domain=madisonbraids.myshopify.com");
     cy.get('div[data-tw-cs="pinned"]').should("be.visible");
   });
 });

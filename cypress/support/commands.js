@@ -17,8 +17,8 @@ Cypress.Commands.add("clearCache", () => {
 Cypress.Commands.add("login", () => {
   cy.fixture("login.json").then((user) => {
     const { email, password } = user;
-    cy.visit("https://app.triplewhale.com/signin");
-    cy.wait(2000);
+    cy.visit("/signin");
+    cy.wait(5000);
 
     // login
     if (
@@ -32,7 +32,7 @@ Cypress.Commands.add("login", () => {
 });
 
 Cypress.Commands.add("madisonPod", () => {
-  cy.visit("https://app.triplewhale.com/all-shops-admin");
+  cy.visit("/all-shops-admin");
   cy.wait(2000);
 
   if (Cypress.$(".search-container input").length > 0) {

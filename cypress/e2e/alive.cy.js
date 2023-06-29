@@ -6,6 +6,6 @@ Cypress.on("uncaught:exception", (err, runnable) => {
 
 describe("The site is alive", () => {
   it("successfully loads", () => {
-    cy.visit("https://app.triplewhale.com/");
+    cy.visit("/");
   });
 });
