@@ -7,6 +7,7 @@
 // commands please read more here:
 // https://on.cypress.io/custom-commands
 // ***********************************************
+import "cypress-network-idle";
 
 Cypress.Commands.add("clearCache", () => {
   cy.clearAllCookies();
@@ -18,16 +19,15 @@ Cypress.Commands.add("login", () => {
   cy.fixture("login.json").then((user) => {
     const { email, password } = user;
     cy.visit("/signin");
-    cy.wait(5000);
-
+    cy.waitForNetworkIdle(100);
     // login
-    if (
-      Cypress.$(".signin-page-container .continue-button button").length > 0
-    ) {
-      cy.get('.signup-page-container input[type="email"]').type(email);
-      cy.get('.signup-page-container input[type="password"]').type(password);
-      cy.get(".signup-page-container .continue-button button").click();
-    }
+    cy.location().then((location) => {
+      if (location.href.includes("signin")) {
+        cy.get('.signup-page-container input[type="email"]').type(email);
+        cy.get('.signup-page-container input[type="password"]').type(password);
+        cy.get(".signup-page-container .continue-button button").click();
+      }
+    });
   });
 });
 
@@ -35,8 +35,15 @@ Cypress.Commands.add("madisonPod", () => {
   cy.visit("/all-shops-admin");
   cy.wait(2000);
 
-  if (Cypress.$(".search-container input").length > 0) {
-    cy.get(".search-container input").type("madison");
-    cy.get(".admin-shop-card button").click();
-  }
+  cy.location().then((location) => {
+    if (location.href.includes("signin")) {
+      cy.get(".search-container input").type("madison");
+      cy.get(".admin-shop-card button").click();
+    }
+  });
+});
+
+Cypress.Commands.add("goToSummaryPage", () => {
+  // go to summary page
+  cy.visit("/summary");
 });

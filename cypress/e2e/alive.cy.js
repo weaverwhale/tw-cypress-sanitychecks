@@ -4,8 +4,15 @@ Cypress.on("uncaught:exception", (err, runnable) => {
   return false;
 });
 
-describe("The site is alive", () => {
-  it("successfully loads", () => {
+describe("health check", () => {
+  it("index loads", () => {
     cy.visit("/");
+  });
+
+  it("signin loads & form button is present", () => {
+    cy.visit("/signin");
+    cy.get(".signup-page-container .continue-button button").should(
+      "be.visible"
+    );
   });
 });
