@@ -6,10 +6,20 @@ module.exports = defineConfig({
   e2e: {
     baseUrl: "https://app.triplewhale.com",
     setupNodeEvents(on, config) {
-      on("before:browser:launch", () => {
+      on("before:browser:launch", (browser, launchOptions) => {
         if (config.env.demo) {
           // @TODO
         }
+
+        if (browser.name === "chrome") {
+          launchOptions.args.push("--incognito");
+        }
+
+        if (browser.name === "electron") {
+          launchOptions.preferences.incognito = true;
+        }
+
+        return launchOptions;
       });
     },
   },

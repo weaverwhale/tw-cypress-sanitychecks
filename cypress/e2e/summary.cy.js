@@ -6,11 +6,14 @@ Cypress.on("uncaught:exception", (err, runnable) => {
   return false;
 });
 
+beforeEach(() => {
+  cy.clearCache();
+  cy.login();
+  cy.madisonPod();
+});
+
 describe("summary page", () => {
   it("should load", () => {
-    cy.clearCache();
-    cy.login();
-    cy.madisonPod();
     cy.goToSummaryPage();
   });
 
