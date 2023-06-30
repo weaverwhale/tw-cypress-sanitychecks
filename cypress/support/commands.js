@@ -33,10 +33,10 @@ Cypress.Commands.add("login", () => {
 
 Cypress.Commands.add("madisonPod", () => {
   cy.visit("/all-shops-admin");
-  cy.wait(2000);
+  cy.waitForNetworkIdle(100);
 
   cy.location().then((location) => {
-    if (location.href.includes("signin")) {
+    if (location.href.includes("all-shops-admin")) {
       cy.get(".search-container input").type("madison");
       cy.get(".admin-shop-card button").click();
     }
@@ -46,4 +46,5 @@ Cypress.Commands.add("madisonPod", () => {
 Cypress.Commands.add("goToSummaryPage", () => {
   // go to summary page
   cy.visit("/summary");
+  cy.waitForNetworkIdle(100);
 });

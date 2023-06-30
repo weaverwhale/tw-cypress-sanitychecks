@@ -6,7 +6,7 @@ Cypress.on("uncaught:exception", (err, runnable) => {
   return false;
 });
 
-beforeEach(() => {
+before(() => {
   cy.clearCache();
   cy.login();
   cy.madisonPod();
