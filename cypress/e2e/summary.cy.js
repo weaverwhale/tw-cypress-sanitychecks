@@ -6,13 +6,10 @@ Cypress.on("uncaught:exception", (err, runnable) => {
   return false;
 });
 
-before(() => {
-  cy.clearCache();
-  cy.login();
-});
-
 describe("summary page", () => {
   it("should have menu items", () => {
+    cy.clearCache();
+    cy.login();
     cy.goToSummaryPage();
     cy.get('div[data-tw-cs="pinned"]').should("be.visible");
   });
