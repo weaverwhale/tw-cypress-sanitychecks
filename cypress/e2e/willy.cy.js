@@ -12,7 +12,7 @@ before(() => {
 describe("willy page", () => {
   it("should have an input", () => {
     cy.visit("/willy");
-    cy.wait();
+    cy.waitForNetworkIdle(100);
     cy.get("#willy-input").should("be.visible");
   });
 });
