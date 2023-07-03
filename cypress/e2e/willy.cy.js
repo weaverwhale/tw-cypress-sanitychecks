@@ -7,14 +7,9 @@ Cypress.on("uncaught:exception", (err, runnable) => {
 before(() => {
   cy.clearCache();
   cy.login();
-  cy.madisonPod();
 });
 
 describe("willy page", () => {
-  it("should load", () => {
-    cy.visit("/willy");
-  });
-
   it("should have an input", () => {
     cy.visit("/willy");
     cy.wait();

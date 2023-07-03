@@ -31,20 +31,8 @@ Cypress.Commands.add("login", () => {
   });
 });
 
-Cypress.Commands.add("madisonPod", () => {
-  cy.visit("/all-shops-admin");
-  cy.waitForNetworkIdle(100);
-
-  cy.location().then((location) => {
-    if (location.href.includes("all-shops-admin")) {
-      cy.get(".search-container input").type("madison");
-      cy.get(".admin-shop-card button").click();
-    }
-  });
-});
-
 Cypress.Commands.add("goToSummaryPage", () => {
   // go to summary page
-  cy.visit("/summary");
+  cy.visit("/summary?shop-id=madisonbraids.myshopify.com");
   cy.waitForNetworkIdle(100);
 });

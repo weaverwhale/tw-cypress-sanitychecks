@@ -9,14 +9,9 @@ Cypress.on("uncaught:exception", (err, runnable) => {
 before(() => {
   cy.clearCache();
   cy.login();
-  cy.madisonPod();
 });
 
 describe("summary page", () => {
-  it("should load", () => {
-    cy.goToSummaryPage();
-  });
-
   it("should have menu items", () => {
     cy.goToSummaryPage();
     cy.get('div[data-tw-cs="pinned"]').should("be.visible");
