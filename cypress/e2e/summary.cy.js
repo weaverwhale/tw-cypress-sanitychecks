@@ -15,7 +15,13 @@ before(() => {
 });
 
 describe("summary page", () => {
-  it("should have a menu item", () => {
-    cy.get(".menuItem");
+  it("loads", () => {
+    cy.visit("/summary");
+    cy.matchImageSnapshot();
+  });
+
+  it("has a menu item", () => {
+    cy.visit("/summary");
+    cy.get(".menuItem").matchImageSnapshot();
   });
 });

@@ -1,12 +1,15 @@
 {
   "scripts": {
     "start": "cypress open --e2e",
+    "cy": "cypress run",
+    "cy:alive": "cypress run --spec cypress/e2e/alive.cy.js -b chrome",
     "cy:chrome": "cypress run -b chrome",
     "cy:firefox": "cypress run -b firefox",
     "demo": "CYPRESS_NO_COMMAND_LOG=1 cypress open --e2e --env demo=true"
   },
   "dependencies": {
-    "cypress": "^12.5.1"
+    "cypress": "^12.5.1",
+    "cypress-image-snapshot": "^4.0.1"
   },
   "devDependencies": {
     "cypress-network-idle": "^1.14.2"

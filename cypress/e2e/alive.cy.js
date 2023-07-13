@@ -5,14 +5,15 @@ Cypress.on("uncaught:exception", (err, runnable) => {
 });
 
 describe("health check", () => {
-  it("index loads", () => {
+  it("loads", () => {
     cy.visit("/");
+    cy.matchImageSnapshot();
   });
 
-  it("signin loads & form button is present", () => {
+  it("has a login button", () => {
     cy.visit("/signin");
-    cy.get(".signup-page-container .continue-button button").should(
-      "be.visible"
-    );
+    cy.get(".signup-page-container .continue-button button")
+      .should("be.visible")
+      .matchImageSnapshot();
   });
 });

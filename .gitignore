@@ -15,3 +15,5 @@ package-lock.json
 /cypress/downloads
 /cypress/screenshots
 /cypress/screenshots/**
+/cypress/snapshots
+/cypress/snapshots/**
