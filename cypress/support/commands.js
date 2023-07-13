@@ -8,9 +8,6 @@
 // https://on.cypress.io/custom-commands
 // ***********************************************
 import "cypress-network-idle";
-import { addMatchImageSnapshotCommand } from "cypress-image-snapshot/command";
-
-addMatchImageSnapshotCommand();
 
 Cypress.Commands.add("clearCache", () => {
   cy.clearAllCookies();
