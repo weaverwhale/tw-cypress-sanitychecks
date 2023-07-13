@@ -19,3 +19,4 @@ package-lock.json
 /cypress/snapshots/**
 
 /mochawesome-report/**
+index.html
