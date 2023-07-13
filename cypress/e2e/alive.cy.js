@@ -7,6 +7,7 @@ Cypress.on("uncaught:exception", (err, runnable) => {
 describe("health check", () => {
   it("loads", () => {
     cy.visit("/");
+    cy.waitForNetworkIdle(100);
     cy.matchImageSnapshot();
   });
 

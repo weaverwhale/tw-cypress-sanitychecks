@@ -17,6 +17,7 @@ before(() => {
 describe("willy page", () => {
   it("loads", () => {
     cy.visit("/willy");
+    cy.waitForNetworkIdle(100);
     cy.matchImageSnapshot();
   });
 

@@ -17,6 +17,7 @@ before(() => {
 describe("summary page", () => {
   it("loads", () => {
     cy.visit("/summary");
+    cy.waitForNetworkIdle(100);
     cy.matchImageSnapshot();
   });
 
