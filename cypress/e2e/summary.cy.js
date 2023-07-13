@@ -18,7 +18,6 @@ describe("summary page", () => {
   it("loads", () => {
     cy.visit("/summary");
     cy.waitForNetworkIdle(1000);
-    // cy.matchImageSnapshot();
   });
 
   it("has a menu item", () => {

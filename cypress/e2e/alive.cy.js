@@ -16,7 +16,6 @@ describe("health check", () => {
   it("loads", () => {
     cy.visit("/");
     cy.waitForNetworkIdle(1000);
-    // cy.matchImageSnapshot();
   });
 
   it("has a login button", () => {

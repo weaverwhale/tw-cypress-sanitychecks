@@ -1,7 +1,4 @@
 const { defineConfig } = require("cypress");
-const {
-  addMatchImageSnapshotPlugin,
-} = require("cypress-image-snapshot/plugin");
 
 module.exports = defineConfig({
   viewportWidth: 1440,
@@ -9,8 +6,6 @@ module.exports = defineConfig({
   e2e: {
     baseUrl: "https://app.triplewhale.com",
     setupNodeEvents(on, config) {
-      addMatchImageSnapshotPlugin(on, config);
-
       on("before:browser:launch", (browser, launchOptions) => {
         if (config.env.demo) {
           // @TODO

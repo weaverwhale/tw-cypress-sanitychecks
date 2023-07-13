@@ -18,7 +18,6 @@ describe("willy page", () => {
   it("loads", () => {
     cy.visit("/willy");
     cy.waitForNetworkIdle(1000);
-    // cy.matchImageSnapshot();
   });
 
   it("has a question input", () => {
