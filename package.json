@@ -1,7 +1,7 @@
 {
   "scripts": {
     "start": "cypress open --e2e",
-    "cy": "cypress run",
+    "cy": "cypress run  --reporter mochawesome --reporter-options reportFilename=index",
     "cy:alive": "cypress run --spec cypress/e2e/alive.cy.js --reporter mochawesome --reporter-options reportFilename=index",
     "cy:chrome": "cypress run -b chrome",
     "cy:firefox": "cypress run -b firefox",
