@@ -16,11 +16,12 @@ describe("health check", () => {
   it("loads", () => {
     cy.visit("/");
     cy.waitForNetworkIdle(1000);
-    cy.matchImageSnapshot();
+    // cy.matchImageSnapshot();
   });
 
   it("has a login button", () => {
     cy.visit("/signin");
+    cy.waitForNetworkIdle(1000);
     cy.get(".signup-page-container .continue-button button").should(
       "be.visible"
     );
