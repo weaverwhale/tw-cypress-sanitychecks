@@ -17,3 +17,6 @@ package-lock.json
 /cypress/screenshots/**
 /cypress/snapshots
 /cypress/snapshots/**
+
+/mochawesome-report
+/mochawesome-report/**
