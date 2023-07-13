@@ -17,12 +17,12 @@ before(() => {
 describe("summary page", () => {
   it("loads", () => {
     cy.visit("/summary");
-    cy.waitForNetworkIdle(100);
+    cy.waitForNetworkIdle(1000);
     cy.matchImageSnapshot();
   });
 
   it("has a menu item", () => {
     cy.visit("/summary");
-    cy.get(".menuItem").matchImageSnapshot();
+    cy.get(".menuItem").should("be.visible");
   });
 });

@@ -13,9 +13,9 @@ import { addMatchImageSnapshotCommand } from "cypress-image-snapshot/command";
 addMatchImageSnapshotCommand();
 
 Cypress.Commands.add("clearCache", () => {
-  // cy.clearAllCookies();
-  // cy.clearAllLocalStorage();
-  // cy.clearAllSessionStorage();
+  cy.clearAllCookies();
+  cy.clearAllLocalStorage();
+  cy.clearAllSessionStorage();
 });
 
 Cypress.Commands.add("login", () => {
