@@ -2,7 +2,7 @@
   "scripts": {
     "start": "cypress open --e2e",
     "cy": "cypress run",
-    "cy:alive": "cypress run --spec cypress/e2e/alive.cy.js --reporter mochawesome",
+    "cy:alive": "cypress run --spec cypress/e2e/alive.cy.js --reporter mochawesome --reporter-options reportFilename=index",
     "cy:chrome": "cypress run -b chrome",
     "cy:firefox": "cypress run -b firefox",
     "demo": "CYPRESS_NO_COMMAND_LOG=1 cypress open --e2e --env demo=true"
