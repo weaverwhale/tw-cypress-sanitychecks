@@ -25,9 +25,17 @@ import addContext from "mochawesome/addContext";
 const titleToFileName = (title) => title.replace(/[:\/]/g, "");
 
 Cypress.on("test:after:run", (test, runnable) => {
-  const filename = `${titleToFileName(
-    runnable.parent.title
-  )} -- ${titleToFileName(test.title)} (${test.state}).png`;
-  addContext({ test }, `../screenshots/${Cypress.spec.name}/${filename}`);
-  addContext({ test }, `../videos/${Cypress.spec.name}.mp4`);
+  // screenshot on failure
+  if (test.state === "failed") {
+    const filename = `${titleToFileName(
+      runnable.parent.title
+    )} -- ${titleToFileName(test.title)} (failed).png`;
+    addContext(
+      { test },
+      `../cypress/screenshots/${Cypress.spec.name}/${filename}`
+    );
+  }
+
+  // always add video
+  addContext({ test }, `../cypress/videos/${Cypress.spec.name}.mp4`);
 });
