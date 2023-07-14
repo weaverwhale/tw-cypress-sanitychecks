@@ -18,3 +18,18 @@ import "./commands";
 
 // Alternatively you can use CommonJS syntax:
 // require('./commands')
+
+// https://github.com/adamgruber/mochawesome-report-generator/issues/130
+import addContext from "mochawesome/addContext";
+
+const titleToFileName = (title) => title.replace(/[:\/]/g, "");
+
+Cypress.on("test:after:run", (test, runnable) => {
+  if (test.state === "failed") {
+    const filename = `${titleToFileName(
+      runnable.parent.title
+    )} -- ${titleToFileName(test.title)} (failed).png`;
+    addContext({ test }, `../screenshots/${Cypress.spec.name}/${filename}`);
+    addContext({ test }, `../videos/${Cypress.spec.name}.mp4`);
+  }
+});
