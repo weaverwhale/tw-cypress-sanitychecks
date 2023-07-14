@@ -12,7 +12,7 @@ before(() => {
   cy.clearCache();
 });
 
-describe("Summary page", () => {
+describe("Summary", () => {
   it("Has menu items", () => {
     cy.login();
     cy.get(".menuItem").should("be.visible");

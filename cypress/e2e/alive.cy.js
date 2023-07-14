@@ -12,7 +12,7 @@ before(() => {
   cy.clearCache();
 });
 
-describe("Health check", () => {
+describe("Health checks", () => {
   it("App loads", () => {
     cy.visit("/");
     cy.waitForNetworkIdle(1000);
@@ -23,6 +23,6 @@ describe("Health check", () => {
   });
 
   it("Can use intercom", () => {
-    cy.get(".intercom-lightweight-app").should("be.visible");
+    cy.get("#intercom-container").should("be.visible");
   });
 });
