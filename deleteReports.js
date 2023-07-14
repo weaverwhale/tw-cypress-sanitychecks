@@ -1,6 +1,6 @@
 const fs = require("fs");
 
-const dir = "./mochawesome-report/*";
+const dir = "./mochawesome-report";
 if (fs.existsSync(dir)) {
-  fs.rm(dir, { recursive: true });
+  fs.readdirSync(dir).forEach((f) => fs.rmSync(`${dir}/${f}`));
 }
