@@ -33,7 +33,14 @@ Cypress.Commands.add("login", () => {
       cy.waitForNetworkIdle(100);
 
       // click madisonbraids pod
-      cy.get("h3").contains("Madisonbraids").click();
+      if (location.href.includes("pod")) {
+        cy.get("h3").contains("Madisonbraids").click();
+      }
+
+      // for admin only
+      if (location.href.includes("all-shops")) {
+        cy.visit("/summary?shop-id=madisonbraids.myshopify.com");
+      }
     });
   });
 });
