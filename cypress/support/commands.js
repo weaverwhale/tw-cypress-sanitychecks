@@ -10,6 +10,7 @@
 import "cypress-network-idle";
 
 Cypress.Commands.add("clearCache", () => {
+  // does this actually work?
   cy.clearAllCookies();
   cy.clearAllLocalStorage();
   cy.clearAllSessionStorage();
