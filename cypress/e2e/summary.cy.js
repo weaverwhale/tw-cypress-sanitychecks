@@ -10,19 +10,11 @@ beforeEach(() => {
 
 before(() => {
   cy.clearCache();
-  cy.login();
-  cy.madisonPod();
 });
 
 describe("summary page", () => {
-  it("loads", () => {
-    cy.visit("/summary");
-    cy.waitForNetworkIdle(1000);
-  });
-
   it("has a menu item", () => {
-    cy.visit("/summary");
-    cy.waitForNetworkIdle(1000);
+    cy.login();
     cy.get(".menuItem").should("be.visible");
   });
 });

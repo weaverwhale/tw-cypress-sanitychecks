@@ -10,18 +10,12 @@ beforeEach(() => {
 
 before(() => {
   cy.clearCache();
-  cy.login();
-  cy.madisonPod();
 });
 
-describe("willy page", () => {
-  it("loads", () => {
-    cy.visit("/willy");
-    cy.waitForNetworkIdle(1000);
-  });
-
-  it("has a question input", () => {
-    cy.visit("/willy");
+describe("summary page", () => {
+  it("has a menu item", () => {
+    cy.login();
+    cy.get(".lighthouse-wrapper div > svg").click();
     cy.waitForNetworkIdle(1000);
     cy.get("#willy-input").should("be.visible");
   });

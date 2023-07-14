@@ -18,11 +18,7 @@ describe("health check", () => {
     cy.waitForNetworkIdle(1000);
   });
 
-  it("has a login button", () => {
-    cy.visit("/signin");
-    cy.waitForNetworkIdle(1000);
-    cy.get(".signup-page-container .continue-button button").should(
-      "be.visible"
-    );
+  it("logs in", () => {
+    cy.login();
   });
 });

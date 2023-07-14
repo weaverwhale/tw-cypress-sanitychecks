@@ -18,17 +18,21 @@ Cypress.Commands.add("clearCache", () => {
 Cypress.Commands.add("login", () => {
   cy.fixture("login.json").then((user) => {
     const { email, password } = user;
-    cy.visit("/signin");
+    cy.visit("/summary");
     cy.waitForNetworkIdle(100);
-    // login
+
     cy.location().then((location) => {
       if (location.href.includes("signin")) {
+        // login
         cy.get('.signup-page-container input[type="email"]').type(email);
         cy.get('.signup-page-container input[type="password"]').type(password);
         cy.get(".signup-page-container .continue-button button").click();
-      } else {
-        cy.visit("/summary?shop-id=madisonbraids.myshopify.com");
       }
+
+      cy.waitForNetworkIdle(100);
+
+      // click madisonbraids pod
+      cy.get("h3").contains("Madisonbraids").click();
     });
   });
 });
