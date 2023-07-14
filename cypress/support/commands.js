@@ -20,7 +20,7 @@ Cypress.Commands.add("login", () => {
   cy.fixture("login.json").then((user) => {
     const { email, password } = user;
     cy.visit("/signin");
-    cy.waitForNetworkIdle(100);
+    cy.waitForNetworkIdle(1000);
 
     cy.location().then((location) => {
       if (location.href.includes("signin")) {
@@ -29,8 +29,6 @@ Cypress.Commands.add("login", () => {
         cy.get('.signup-page-container input[type="password"]').type(password);
         cy.get(".signup-page-container .continue-button button").click();
       }
-
-      cy.waitForNetworkIdle(100);
 
       // click madisonbraids pod
       if (location.href.includes("pods-view")) {
