@@ -12,13 +12,17 @@ before(() => {
   cy.clearCache();
 });
 
-describe("health check", () => {
-  it("loads", () => {
+describe("Health check", () => {
+  it("App loads", () => {
     cy.visit("/");
     cy.waitForNetworkIdle(1000);
   });
 
-  it("logs in", () => {
+  it("Can log in", () => {
     cy.login();
+  });
+
+  it("Can use intercom", () => {
+    cy.get(".intercom-lightweight-app").should("be.visible");
   });
 });

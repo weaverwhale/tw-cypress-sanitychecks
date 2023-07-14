@@ -12,9 +12,14 @@ before(() => {
   cy.clearCache();
 });
 
-describe("summary page", () => {
-  it("has a menu item", () => {
+describe("Summary page", () => {
+  it("Has menu items", () => {
     cy.login();
     cy.get(".menuItem").should("be.visible");
+  });
+
+  it("Has tiles", () => {
+    cy.login();
+    cy.get("div[aria-label*='summary tile']").should("be.visible");
   });
 });
