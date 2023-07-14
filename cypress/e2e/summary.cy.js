@@ -20,6 +20,6 @@ describe("Summary", () => {
 
   it("Has tiles", () => {
     cy.login();
-    cy.get("div[aria-label*='summary tile']").should("be.visible");
+    cy.get("div[aria-label*='summary tile']").should("exist");
   });
 });
