@@ -12,7 +12,8 @@
     "cy:all": "yarn delete-reports && yarn cy ; yarn merge ; yarn generate_mochawesome_report"
   },
   "dependencies": {
-    "cypress": "^12.5.1"
+    "cypress": "^12.5.1",
+    "node-fetch": "^3.3.1"
   },
   "devDependencies": {
     "cypress-network-idle": "^1.14.2",
