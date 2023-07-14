@@ -38,27 +38,6 @@ Cypress.Commands.add("login", () => {
   });
 });
 
-Cypress.Commands.add("madisonPod", () => {
-  cy.visit("/all-shops-admin");
-  cy.wait(1000);
-
-  // if logged in, go to madison
-  cy.location().then((location) => {
-    if (location.href.includes("all-shops-admin")) {
-      cy.get(".search-container input").type("madison");
-      cy.get(".admin-shop-card button").click();
-    } else {
-      cy.visit("/summary?shop-id=madisonbraids.myshopify.com");
-    }
-  });
-});
-
-Cypress.Commands.add("goToSummaryPage", () => {
-  // go to summary page
-  cy.visit("/summary?shop-id=madisonbraids.myshopify.com");
-  cy.waitForNetworkIdle(100);
-});
-
 Cypress.Commands.add("stubResponses", () => {
   [
     "ingest.sentry.io",

@@ -14,8 +14,9 @@ before(() => {
 
 describe("Health checks", () => {
   it("App loads", () => {
-    cy.visit("/");
+    cy.visit("/signin");
     cy.waitForNetworkIdle(1000);
+    cy.get(".login-content").should("be.visible");
   });
 
   it("Can log in", () => {
@@ -23,6 +24,8 @@ describe("Health checks", () => {
   });
 
   it("Can use intercom", () => {
-    cy.get("#intercom-container").should("be.visible");
+    cy.login();
+    cy.waitForNetworkIdle(1000);
+    cy.get(".intercom-lightweight-app").should("be.visible");
   });
 });
