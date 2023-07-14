@@ -24,8 +24,7 @@ describe("Health checks", () => {
   });
 
   it("Can use intercom", () => {
-    cy.login();
-    cy.waitForNetworkIdle(1000);
-    cy.get(".intercom-lightweight-app").should("be.visible");
+    cy.visit("/signin");
+    cy.get(".intercom-lightweight-app-launcher-icon").should("be.visible");
   });
 });
