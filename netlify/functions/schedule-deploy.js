@@ -1,4 +1,5 @@
 const fetch = require("node-fetch");
+import { schedule } from "@netlify/functions";
 
 // https://app.netlify.com/sites/tw-status/configuration/deploys
 const BUILD_HOOK =

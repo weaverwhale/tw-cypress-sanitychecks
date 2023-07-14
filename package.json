@@ -14,6 +14,7 @@
     "cy:all": "yarn delete-reports && yarn cy ; yarn merge ; yarn generate_mochawesome_report"
   },
   "dependencies": {
+    "@netlify/functions": "^1.6.0",
     "cypress": "^12.5.1",
     "node-fetch": "^3.3.1"
   },
