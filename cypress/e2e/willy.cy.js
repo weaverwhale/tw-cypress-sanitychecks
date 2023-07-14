@@ -27,6 +27,7 @@ describe("Willy", () => {
   it("tries to answer our question", () => {
     cy.login();
     goToWilly();
+    cy.get("#willy-input").should("be.visible");
     cy.get("#willy-input").type("How are you?{enter}");
     cy.get('span[aria-label*="Avatar"]').should("be.visible");
   });

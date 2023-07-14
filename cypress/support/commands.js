@@ -33,7 +33,7 @@ Cypress.Commands.add("login", () => {
       cy.waitForNetworkIdle(100);
 
       // click madisonbraids pod
-      if (location.href.includes("pod")) {
+      if (location.href.includes("pods-view")) {
         cy.get("h3").contains("Madisonbraids").click();
       }
 
