@@ -1,6 +1,6 @@
 [build]
 command = "yarn && yarn cy:all"
-publish = "mochawesome-report"
+publish = "cypress"
 
 [functions]
 node_bundler = "esbuild"

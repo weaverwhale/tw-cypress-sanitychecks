@@ -8,7 +8,7 @@
     "cy:firefox": "cypress run -b firefox",
     "demo": "CYPRESS_NO_COMMAND_LOG=1 cypress open --e2e --env demo=true",
     "merge": "mochawesome-merge ./mochawesome-report/*.json > ./mochawesome-report/index.json",
-    "generate_mochawesome_report": "marge ./mochawesome-report/index.json --reportDir=./mochawesome-report --i=true -p='Triple Whale Smoke Tests' -t='Triple Whale Smoke Tests' --charts=true",
+    "generate_mochawesome_report": "marge ./mochawesome-report/index.json --reportDir=./cypress --i=true -p='Triple Whale Smoke Tests' -t='Triple Whale Smoke Tests' --charts=true",
     "delete-reports": "node deleteReports.js",
     "cy:all": "yarn delete-reports && yarn cy ; yarn merge ; yarn generate_mochawesome_report"
   },
