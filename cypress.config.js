@@ -6,9 +6,6 @@ module.exports = defineConfig({
   reporter: "mochawesome",
   reporterOptions: {
     charts: true,
-    embeddedScreenshots: true,
-    inlineAssets: true,
-    reportPageTitle: "Triple Whale Smoke Tests",
     overwrite: false,
     html: false,
     json: true,
