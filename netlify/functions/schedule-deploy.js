@@ -5,8 +5,8 @@ import { schedule } from "@netlify/functions";
 const BUILD_HOOK =
   "https://api.netlify.com/build_hooks/64b0538251e4203508d154bb";
 
-// https://crontab.guru/every-1-hour
-const handler = schedule("0 * * * *", async () => {
+// https://crontab.guru/every-10-minutes
+const handler = schedule("*/10 * * * *", async () => {
   console.log("Triggering build hook:", BUILD_HOOK);
   const res = {};
 
