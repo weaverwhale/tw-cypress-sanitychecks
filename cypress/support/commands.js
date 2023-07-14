@@ -19,7 +19,7 @@ Cypress.Commands.add("clearCache", () => {
 Cypress.Commands.add("login", () => {
   cy.fixture("login.json").then((user) => {
     const { email, password } = user;
-    cy.visit("/summary");
+    cy.visit("/signin");
     cy.waitForNetworkIdle(100);
 
     cy.location().then((location) => {
@@ -41,6 +41,8 @@ Cypress.Commands.add("login", () => {
       if (location.href.includes("all-shops")) {
         cy.visit("/summary?shop-id=madisonbraids.myshopify.com");
       }
+
+      cy.waitForNetworkIdle(1250);
     });
   });
 });
