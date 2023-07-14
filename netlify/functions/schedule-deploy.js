@@ -7,14 +7,19 @@ const BUILD_HOOK =
 
 // https://crontab.guru/every-1-hour
 const handler = schedule("0 * * * *", async () => {
+  console.log("Triggering build hook:", BUILD_HOOK);
+  const res = {};
+
   await fetch(BUILD_HOOK, {
     method: "POST",
   }).then((response) => {
     console.log("Build hook response:", response);
+    res = response;
   });
 
   return {
     statusCode: 200,
+    ...res,
   };
 });
 
