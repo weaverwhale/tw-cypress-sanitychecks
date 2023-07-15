@@ -14,7 +14,7 @@ Being that this is hosted and operated outside of the application, it provides a
 
 This app has a webhook that can be used to trigger a test run.
 
-The app also has a headless CRON function that builds a new report every **10 minutes**
+The app also has a headless CRON function that builds a new report every **5 minutes**
 
 We could also implement a hook that triggers on every deployment, but it's probably better to use a CRON considering our deployment frequency.
 
