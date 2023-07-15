@@ -6,7 +6,7 @@ const BUILD_HOOK =
   "https://api.netlify.com/build_hooks/64b0538251e4203508d154bb";
 
 // https://crontab.guru/every-5-minutes
-export const handler = schedule("* * * * *", async () => {
+export const handler = schedule("*/5 * * * *", async () => {
   console.log("Triggering build hook:", BUILD_HOOK);
   let res = {};
 
