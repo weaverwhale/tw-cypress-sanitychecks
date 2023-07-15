@@ -13,7 +13,10 @@ export const handler = schedule("*/5 * * * *", async () => {
   await fetch(BUILD_HOOK, {
     method: "POST",
   }).then((response) => {
-    console.log("Build hook response:", response);
+    console.log(
+      "Build hook response:",
+      `${response.status} ${response.statusText}`
+    );
     res = response;
   });
 
