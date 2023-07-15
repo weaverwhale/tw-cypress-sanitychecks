@@ -10,6 +10,14 @@ This project is a simple Cypress project that runs tests against the Triple Whal
 
 Being that this is hosted and operated outside of the application, it provides a way to monitor the application from an external source.
 
+## Hooks
+
+This app has a webhook that can be used to trigger a test run.
+
+The app also has a headless CRON function that builds a new report every **10 minutes**
+
+We could also implement a hook that triggers on every deployment, but it's probably better to use a CRON considering our deployment frequency.
+
 ## Tests
 
 - [x] Alive
