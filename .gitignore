@@ -21,3 +21,6 @@ package-lock.json
 /mochawesome-report/**
 
 index.html
+
+# Local Netlify folder
+.netlify

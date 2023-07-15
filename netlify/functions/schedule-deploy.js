@@ -1,14 +1,14 @@
-const fetch = require("node-fetch");
-const { schedule } = require("@netlify/functions");
+import fetch from "node-fetch";
+import { schedule } from "@netlify/functions";
 
 // https://app.netlify.com/sites/tw-status/configuration/deploys
 const BUILD_HOOK =
   "https://api.netlify.com/build_hooks/64b0538251e4203508d154bb";
 
 // https://crontab.guru/every-5-minutes
-const handler = schedule("*/5 * * * *", async () => {
+export const handler = schedule("* * * * *", async () => {
   console.log("Triggering build hook:", BUILD_HOOK);
-  const res = {};
+  let res = {};
 
   await fetch(BUILD_HOOK, {
     method: "POST",
@@ -18,9 +18,9 @@ const handler = schedule("*/5 * * * *", async () => {
   });
 
   return {
-    statusCode: 200,
     ...res,
+    statusCode: 200,
   };
 });
 
-export { handler };
+export default handler;
