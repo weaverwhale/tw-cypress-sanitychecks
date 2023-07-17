@@ -1,4 +1,6 @@
-  steps:
+steps:
   # running docker-compose
-  - name: 'docker/compose:1.26.2'
-    args: ['up', '-d']
+  - name: "docker/compose:1.26.2"
+    args: ["up", "-d"]
+options:
+  machineType: "N1_HIGHCPU_8"
