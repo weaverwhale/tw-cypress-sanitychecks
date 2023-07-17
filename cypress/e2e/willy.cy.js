@@ -18,13 +18,13 @@ function goToWilly() {
 }
 
 describe("Willy", () => {
-  it("has an input", () => {
+  it("Has an input", () => {
     cy.login();
     goToWilly();
     cy.get("#willy-input").should("be.visible");
   });
 
-  it("tries to answer our question", () => {
+  it("Tries to answer our question", () => {
     cy.login();
     goToWilly();
     cy.get("#willy-input").should("be.visible");

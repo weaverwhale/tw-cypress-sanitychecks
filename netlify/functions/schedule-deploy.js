@@ -5,8 +5,8 @@ import { schedule } from "@netlify/functions";
 const BUILD_HOOK =
   "https://api.netlify.com/build_hooks/64b0538251e4203508d154bb";
 
-// https://crontab.guru/every-15-minutes
-// export const handler = schedule("*/15 * * * *", async () => {
+// https://crontab.guru/every-5-minutes
+// export const handler = schedule("*/5 * * * *", async () => {
 
 // https://crontab.guru/once-a-day
 export const handler = schedule("0 0 * * *", async () => {
