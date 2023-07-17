@@ -1,8 +1,8 @@
 {
   "scripts": {
     "start": "cypress open --e2e",
-    "cy": "cypress run",
-    "cy:all": "yarn delete-reports && yarn cy ; yarn merge ; yarn generate_mochawesome_report",
+    "cy": "cypress run --headless NODE_OPTIONS=--max_old_space_size=8192",
+    "cy:all": "yarn delete-reports && yarn cy; yarn merge ; yarn generate_mochawesome_report",
     "cy:alive": "cypress run --spec cypress/e2e/alive.cy.js",
     "cy:summary": "cypress run --spec cypress/e2e/summary.cy.js",
     "cy:willy": "cypress run --spec cypress/e2e/willy.cy.js",
