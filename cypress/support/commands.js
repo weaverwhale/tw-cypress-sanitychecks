@@ -25,6 +25,7 @@ Cypress.Commands.add("login", () => {
     cy.location().then((location) => {
       if (location.href.includes("signin")) {
         // login
+        cy.contains("Login");
         cy.get('.signup-page-container input[type="email"]').type(email);
         cy.get('.signup-page-container input[type="password"]').type(password);
         cy.get(".signup-page-container .continue-button button").click();
@@ -32,11 +33,13 @@ Cypress.Commands.add("login", () => {
 
       // click madisonbraids pod
       if (location.href.includes("pods-view")) {
+        cy.contains("Pods");
         cy.get("h3").contains("Madisonbraids").click();
       }
 
       // for admin only
       if (location.href.includes("all-shops")) {
+        cy.contains("Pods");
         cy.visit("/summary?shop-id=madisonbraids.myshopify.com");
       }
 
