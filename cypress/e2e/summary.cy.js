@@ -4,9 +4,18 @@ Cypress.on("uncaught:exception", (err, runnable) => {
   return false;
 });
 
+beforeEach(() => {
+  cy.stubResponses();
+});
+
+before(() => {
+  cy.clearCache();
+});
+
 describe("Summary", () => {
   it("Has menu items", () => {
     cy.login();
+    cy.waitForNetworkIdle(100);
     cy.get(".menuItem").should("be.visible");
   });
 
