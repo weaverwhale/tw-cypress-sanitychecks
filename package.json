@@ -1,4 +1,8 @@
 {
+  "name": "tw-status",
+  "version": "0.1.0",
+  "author": "Mike Weaver",
+  "license": "ISC",
   "scripts": {
     "start": "cypress open --e2e",
     "cy": "cypress run --headless NODE_OPTIONS=--max_old_space_size=8192",
