@@ -1,6 +1,0 @@
-[build]
-command = "yarn && yarn cy:all"
-publish = "cypress"
-
-[functions]
-node_bundler = "esbuild"
