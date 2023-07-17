@@ -3,4 +3,4 @@ steps:
   - name: "docker/compose:1.26.2"
     args: ["up", "-d"]
 options:
-  machineType: "C3_HIGHMEM_16"
+  machineType: "C3_HIGHMEM_8"
