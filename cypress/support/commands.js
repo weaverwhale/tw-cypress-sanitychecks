@@ -17,10 +17,13 @@ Cypress.Commands.add("clearCache", () => {
 });
 
 Cypress.Commands.add("login", () => {
+  cy.clearCache();
+  cy.stubResponses();
+
   cy.fixture("login.json").then((user) => {
     const { email, password } = user;
     cy.visit("/signin");
-    cy.waitForNetworkIdle(1000);
+    cy.waitForNetworkIdle(100);
 
     cy.location().then((location) => {
       if (location.href.includes("signin")) {
@@ -40,19 +43,19 @@ Cypress.Commands.add("login", () => {
         cy.visit("/summary?shop-id=madisonbraids.myshopify.com");
       }
 
-      cy.waitForNetworkIdle(1250);
+      cy.waitForNetworkIdle(250);
     });
   });
 });
 
 Cypress.Commands.add("stubResponses", () => {
   [
-    "ingest.sentry.io",
-    "app.posthog.com",
-    "datadoghq.com",
+    "sentry",
+    "posthog",
+    "datadoghq",
     "firestore",
     "firebase",
-    "canny.io",
+    "canny",
     "intercom",
   ].forEach((domain) => {
     cy.intercept("GET", `*${domain}*`, []).as("stub_" + domain);
