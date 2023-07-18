@@ -56,17 +56,18 @@ Cypress.Commands.add("login", () => {
 
 Cypress.Commands.add("stubResponses", () => {
   [
-    "sentry.io",
-    "app.posthog.com",
-    "rum.browser-intake-us5-datadoghq.com",
-    "canny.io",
-    "api.amplitude.com",
-    "api-iam.intercom.io",
-    "firebasestorage.googleapis.com",
-    "firestore.googleapis.com",
-    "identitytoolkit.googleapis.com",
-    "profitwell.com",
-    "stripe.com",
+    "sentry",
+    "posthog",
+    "datadoghq",
+    "canny",
+    "amplitude",
+    "api-iam.intercom",
+    "firebasestorage.googleapis",
+    "firestore.googleapis",
+    "identitytoolkit",
+    "profitwell",
+    "stripe",
+    "stripePublisherKey",
   ].forEach((domain) => {
     cy.intercept("GET", `**${domain}**`, []).as("stub_" + domain);
     cy.intercept("POST", `**${domain}**`, []).as("stub_" + domain);
