@@ -8,9 +8,9 @@ beforeEach(() => {
   cy.stubResponses();
 });
 
-before(() => {
-  cy.clearCache();
-});
+// before(() => {
+//   cy.clearCache();
+// });
 
 function goToWilly() {
   cy.get(".lighthouse-wrapper div > svg").click();

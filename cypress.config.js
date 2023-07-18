@@ -3,8 +3,8 @@ const { defineConfig } = require("cypress");
 module.exports = defineConfig({
   viewportWidth: 1440,
   viewportHeight: 1080,
-  defaultCommandTimeout: 10000,
-  retries: 3,
+  // defaultCommandTimeout: 10000,
+  // retries: 3,
   reporter: "mochawesome",
   reporterOptions: {
     charts: true,

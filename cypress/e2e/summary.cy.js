@@ -8,9 +8,9 @@ beforeEach(() => {
   cy.stubResponses();
 });
 
-before(() => {
-  cy.clearCache();
-});
+// before(() => {
+//   cy.clearCache();
+// });
 
 describe("Summary", () => {
   it("Has menu items", () => {
