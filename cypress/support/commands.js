@@ -48,8 +48,8 @@ Cypress.Commands.add("stubResponses", () => {
     "posthog",
     "datadoghq",
     "canny",
+    "amplitude",
     "intercom",
-    "googleapis",
     "firestore",
     "firebase",
   ].forEach((domain) => {
