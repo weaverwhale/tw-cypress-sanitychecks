@@ -36,6 +36,12 @@ Cypress.Commands.add("login", () => {
         cy.get("h3").contains("Madisonbraids").click();
         cy.waitForNetworkIdle(100);
       }
+
+      // for admin only
+      if (location.href.includes("all-shops")) {
+        cy.visit("/summary?shop-id=madisonbraids.myshopify.com");
+        cy.waitForNetworkIdle(100);
+      }
     });
 
     cy.waitForNetworkIdle(100);
@@ -44,14 +50,16 @@ Cypress.Commands.add("login", () => {
 
 Cypress.Commands.add("stubResponses", () => {
   [
-    "sentry",
-    "posthog",
-    "datadoghq",
-    "canny",
-    "amplitude",
-    "intercom",
-    "firestore",
-    "firebase",
+    "sentry.io",
+    "app.posthog.com",
+    "rum.browser-intake-us5-datadoghq.com",
+    "canny.io",
+    "api.amplitude.com",
+    "api-iam.intercom.io",
+    "firebasestorage.googleapis.com",
+    "firestore.googleapis.com",
+    "identitytoolkit.googleapis.com",
+    "www2.profitwell.com",
   ].forEach((domain) => {
     cy.intercept("GET", `*${domain}*`, []).as("stub_" + domain);
     cy.intercept("POST", `*${domain}*`, []).as("stub_" + domain);
