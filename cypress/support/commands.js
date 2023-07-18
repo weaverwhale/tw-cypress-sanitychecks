@@ -9,13 +9,6 @@
 // ***********************************************
 import "cypress-network-idle";
 
-Cypress.Commands.add("clearCache", () => {
-  // does this actually work?
-  cy.clearAllCookies();
-  cy.clearAllLocalStorage();
-  cy.clearAllSessionStorage();
-});
-
 Cypress.Commands.add("login", () => {
   cy.fixture("login.json").then((user) => {
     const { email, password } = user;
@@ -43,21 +36,5 @@ Cypress.Commands.add("login", () => {
         cy.waitForNetworkIdle(100);
       }
     });
-  });
-});
-
-Cypress.Commands.add("stubResponses", () => {
-  [
-    "sentry",
-    "posthog",
-    "datadoghq",
-    "canny",
-    "intercom",
-    "googleapis",
-    "firestore",
-    "firebase",
-  ].forEach((domain) => {
-    cy.intercept("GET", `*${domain}*`, []).as("stub_" + domain);
-    cy.intercept("POST", `*${domain}*`, []).as("stub_" + domain);
   });
 });

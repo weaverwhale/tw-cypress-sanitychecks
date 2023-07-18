@@ -4,10 +4,6 @@ Cypress.on("uncaught:exception", (err, runnable) => {
   return false;
 });
 
-beforeEach(() => {
-  cy.stubResponses();
-});
-
 describe("Summary", () => {
   it("Has menu items", () => {
     cy.login();

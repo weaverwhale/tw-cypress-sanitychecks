@@ -4,10 +4,6 @@ Cypress.on("uncaught:exception", (err, runnable) => {
   return false;
 });
 
-beforeEach(() => {
-  cy.stubResponses();
-});
-
 describe("Health checks", () => {
   it("App loads", () => {
     cy.visit("/signin");

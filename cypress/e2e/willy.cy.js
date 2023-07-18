@@ -4,10 +4,6 @@ Cypress.on("uncaught:exception", (err, runnable) => {
   return false;
 });
 
-beforeEach(() => {
-  cy.stubResponses();
-});
-
 function goToWilly() {
   cy.get(".lighthouse-wrapper div > svg").click();
   cy.waitForNetworkIdle(1000);
