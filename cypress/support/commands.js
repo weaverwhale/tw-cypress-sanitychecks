@@ -36,13 +36,9 @@ Cypress.Commands.add("login", () => {
         cy.get("h3").contains("Madisonbraids").click();
         cy.waitForNetworkIdle(100);
       }
-
-      // for admin only
-      if (location.href.includes("all-shops")) {
-        cy.visit("/summary?shop-id=madisonbraids.myshopify.com");
-        cy.waitForNetworkIdle(100);
-      }
     });
+
+    cy.waitForNetworkIdle(100);
   });
 });
 
