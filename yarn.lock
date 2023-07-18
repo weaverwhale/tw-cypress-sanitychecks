@@ -358,7 +358,7 @@ cypress-network-idle@^1.14.2:
   resolved "https://registry.yarnpkg.com/cypress-network-idle/-/cypress-network-idle-1.14.2.tgz#0837100861feeb5a18f4c2d9815be079f8590f4d"
   integrity sha512-xAdR8dH58KFPv8eCDWjviScITrJOcUpuMXYfYTc175nk2/NvnJ+I6ylSn1CM7yZmoV/gLbFa36QLiH5NfNEaLQ==
 
-cypress@^12.5.1:
+cypress@^12.17.1:
   version "12.17.1"
   resolved "https://registry.yarnpkg.com/cypress/-/cypress-12.17.1.tgz#777fdcceec4ecd642fc90795f5994853b6ea03f8"
   integrity sha512-eKfBgO6t8waEyhegL4gxD7tcI6uTCGttu+ZU7y9Hq8BlpMztd7iLeIF4AJFAnbZH1xjX+wwgg4cRKFNSvv3VWQ==
