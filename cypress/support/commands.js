@@ -22,33 +22,27 @@ Cypress.Commands.add("login", () => {
     cy.visit("/summary?shop-id=madisonbraids.myshopify.com");
     cy.waitForNetworkIdle(100);
 
-    cy.location()
-      .then((location) => {
-        if (location.href.includes("signin")) {
-          // login
-          cy.get('.signup-page-container input[type="email"]').type(email);
-          cy.get('.signup-page-container input[type="password"]').type(
-            password
-          );
-          cy.get(".signup-page-container .continue-button button").click();
-          cy.waitForNetworkIdle(100);
-        }
-
-        // click madisonbraids pod
-        if (location.href.includes("pods-view")) {
-          cy.get("h3").contains("Madisonbraids").click();
-          cy.waitForNetworkIdle(100);
-        }
-
-        // for admin only
-        if (location.href.includes("all-shops")) {
-          cy.visit("/summary?shop-id=madisonbraids.myshopify.com");
-          cy.waitForNetworkIdle(100);
-        }
-      })
-      .then(() => {
+    cy.location().then((location) => {
+      if (location.href.includes("signin")) {
+        // login
+        cy.get('.signup-page-container input[type="email"]').type(email);
+        cy.get('.signup-page-container input[type="password"]').type(password);
+        cy.get(".signup-page-container .continue-button button").click();
         cy.waitForNetworkIdle(100);
-      });
+      }
+
+      // click madisonbraids pod
+      if (location.href.includes("pods-view")) {
+        cy.get("h3").contains("Madisonbraids").click();
+        cy.waitForNetworkIdle(100);
+      }
+
+      // for admin only
+      if (location.href.includes("all-shops")) {
+        cy.visit("/summary?shop-id=madisonbraids.myshopify.com");
+        cy.waitForNetworkIdle(100);
+      }
+    });
 
     cy.waitForNetworkIdle(100);
   });
