@@ -6,7 +6,7 @@ Cypress.on("uncaught:exception", (err, runnable) => {
 
 function goToWilly() {
   cy.get(".lighthouse-wrapper div > svg").click();
-  cy.waitForNetworkIdle(1000);
+  cy.waitForNetworkIdle(100);
 }
 
 describe("Willy", () => {
