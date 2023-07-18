@@ -4,6 +4,14 @@ Cypress.on("uncaught:exception", (err, runnable) => {
   return false;
 });
 
+beforeEach(() => {
+  cy.stubResponses();
+});
+
+before(() => {
+  cy.clearCache();
+});
+
 describe("Health checks", () => {
   it("App loads", () => {
     cy.visit("/signin");
