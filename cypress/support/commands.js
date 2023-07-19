@@ -51,19 +51,21 @@ Cypress.Commands.add("login", () => {
 Cypress.Commands.add("stubResponses", () => {
   [
     "sentry",
-    "posthog",
-    "datadoghq",
+    "app.posthog.com",
+    "datadoghq.com",
     "canny",
     "amplitude",
-    "api-iam.intercom",
-    "firebasestorage.googleapis",
-    "firestore.googleapis",
+    "firebasestorage.googleapis.com",
+    "firestore.googleapis.com",
     "identitytoolkit",
     "profitwell",
-    "stripe",
-    "stripePublisherKey",
+    "https://m.stripe.com",
   ].forEach((domain) => {
-    cy.intercept("GET", `**${domain}**`, []).as("stub_" + domain);
-    cy.intercept("POST", `**${domain}**`, []).as("stub_" + domain);
+    cy.intercept("GET", `*${domain}*`, { statusCode: 200 }).as(
+      "stub_" + domain
+    );
+    cy.intercept("POST", `*${domain}*`, { statusCode: 200 }).as(
+      "stub_" + domain
+    );
   });
 });
