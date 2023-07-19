@@ -12,6 +12,6 @@ RUN yarn
 
 RUN yarn cy:all
 
-EXPOSE 8080
+EXPOSE 80
 
 CMD [ "yarn",  "serve" ]

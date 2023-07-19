@@ -16,7 +16,7 @@
     "merge": "mochawesome-merge ./mochawesome-report/*.json > ./mochawesome-report/index.json",
     "generate_mochawesome_report": "marge ./mochawesome-report/index.json --reportDir=./cypress --i=true -p='Triple Whale Smoke Tests' -t='Triple Whale Smoke Tests' --charts=true",
     "delete-reports": "node deleteReports.js",
-    "serve": "npx http-server cypress",
+    "serve": "npx http-server cypress -p 80",
     "docker:build": "docker build -t node . ",
     "docker:compose": "docker compose up --remove-orphans"
   },
