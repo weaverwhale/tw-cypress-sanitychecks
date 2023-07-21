@@ -55,11 +55,11 @@ Cypress.Commands.add("stubResponses", () => {
     "datadoghq.com",
     "canny",
     "amplitude",
-    "firebasestorage.googleapis.com",
-    "firestore.googleapis.com",
-    "identitytoolkit",
+    // "firebasestorage.googleapis.com",
+    // "firestore.googleapis.com",
+    // "identitytoolkit",
     "profitwell",
-    "https://m.stripe.com",
+    // "https://m.stripe.com",
   ].forEach((domain) => {
     cy.intercept("GET", `*${domain}*`, { statusCode: 200 }).as(
       "stub_" + domain
