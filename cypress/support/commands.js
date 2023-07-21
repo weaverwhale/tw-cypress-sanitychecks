@@ -44,7 +44,7 @@ Cypress.Commands.add("login", () => {
       }
     });
 
-    cy.waitForNetworkIdle(1000);
+    cy.waitForNetworkIdle(500);
   });
 });
 
