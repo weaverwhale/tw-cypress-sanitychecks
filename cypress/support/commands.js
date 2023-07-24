@@ -18,6 +18,8 @@ Cypress.Commands.add("clearCache", () => {
 
 Cypress.Commands.add("login", () => {
   cy.fixture("login.json").then((user) => {
+    cy.clearCache();
+
     const { email, password } = user;
     cy.visit("/summary?shop-id=madisonbraids.myshopify.com");
     cy.waitForNetworkIdle(100);
